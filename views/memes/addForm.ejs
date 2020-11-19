@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>add Memes</title>
 </head>
+<header>
+  <%-include("../partials/navbar",{title:"shitpost"})%>
+</header>
 <body>
   <form action="/memes/add" method="POST">
     <label for="title">Title</label><br>
     <input type="text" name="title" placeholder="the dank memes"><br><br>
-
-  
 
     <label for="image_url">Image Link</label><br>
     <input type="text" name="image_url" placeholder="the links"><br><br>
@@ -18,6 +19,5 @@
     <input type="submit" value="submit">
 
   </form>
-  
 </body>
 </html>

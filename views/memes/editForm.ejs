@@ -6,6 +6,9 @@
   <title>Edit Form</title>
 </head>
 <body>
+  <header>
+    <%-include("../partials/navbar",{title:"shitpost"})%>
+  </header>
   <form action="/memes/edit/<%= editdata[0].id %> " method="POST">
     <label for="title">Title</label><br>
     <input type="text" name="title" value<%= editdata[0].title %>><br><br>

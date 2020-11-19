@@ -6,13 +6,11 @@
          border-collapse: collapse;
          width: 100%;
        }
-       
        th, td {
          padding: 8px;
          text-align: center;
          border-bottom: 1px solid #ddd;
        }
-       
        tr:hover {background-color:#f5f5f5;}
        .img-thumbnail {
           width: 100px;
@@ -23,6 +21,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memes</title>
 </head>
+   <header>
+      <%-include("../partials/navbar",{title:"shitpost"})%>
+   </header>
 <body>
    <h4><a href="/memes/add">add memes</a></h4>
   <table>
@@ -35,7 +36,7 @@
 
     <% data.forEach(el => { %> 
     <tr>
-       <td><%= el.title %> </td>
+       <td><%= el.title %></td>
        <td><%= el.author %></td>
        <td>
           <img class="img-thumbnail" src="<%= el.image_url %>" alt="" srcset="">
