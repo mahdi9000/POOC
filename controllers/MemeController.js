@@ -1,4 +1,4 @@
-const {Meme, Like} = require('../database/models')
+const { Meme, Like } = require('../database/models')
 
 class MemeController {
   static getAllMemes(req, res) {
