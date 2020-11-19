@@ -52,6 +52,7 @@ class UserController {
         } else if (!verifyHash(req.body.password, user.password)) {
           res.send('Wrong username/password')
         } else {
+          req.session.loggedIn = true;
           req.session.userId = user.id;
           req.session.username = user.username;
           // res.status(200).json(req.ression)userName
@@ -63,6 +64,10 @@ class UserController {
       })
   }
 
+  static logout(req, res) {
+    req.session.loggedIn = false;
+    res.redirect('/');
+  }
 }
 
 module.exports = UserController
