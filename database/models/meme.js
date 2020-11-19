@@ -15,52 +15,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Meme.init({
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Title is required'
-        },
-        notNull: {
-          args: true,
-          msg: 'Title is required'
-        }
-      }
-    },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Categery is required'
-        },
-        notNull: {
-          args: true,
-          msg: 'Categery is required'
-        }
-      }
-    },
-    meme_url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: `It's not dank memes if it does not contain picture, it's a "quotes"`
-        },
-        notNull: {
-          args: true,
-          msg: `It's not dank memes if it does not contain picture, it's a "quotes"`
-        },
-        isUrl: {
-          args: true,
-          msg: 'Image must be a URL format, you can find the on 9GAG or etc'
-        }
-      }
-    },
+    title: DataTypes.STRING,
+    author: DataTypes.STRING,
+    image_url: DataTypes.STRING,
     UserId: DataTypes.INTEGER
   }, {
     sequelize,

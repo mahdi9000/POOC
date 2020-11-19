@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+      table {
+         border-collapse: collapse;
+         width: 100%;
+       }
+       
+       th, td {
+         padding: 8px;
+         text-align: center;
+         border-bottom: 1px solid #ddd;
+       }
+       
+       tr:hover {background-color:#f5f5f5;}
+       .img-thumbnail {
+          width: 100px;
+          height: auto;
+       }
+   </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memes</title>
+</head>
+<body>
+  <table>
+    <th>
+       <td>Title</td>
+       <td>Author</td>
+       <td>image_url</td>
+    </th>
+
+    <% data.forEach(el => { %> 
+    <tr>
+       <td><%= el.title %> </td>
+       <td><%= el.author %></td>
+       <td>
+          <img class="img-thumbnail" src="<%= el.image_url %>" alt="" srcset="">
+       </td>
+       <!-- <td><a href="/memes/<%= el.id %>/report">Report This Kitten</a></td> -->
+    </tr>
+    <% }) %> 
+ </table>
+  
+</body>
+</html>

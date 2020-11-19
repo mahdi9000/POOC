@@ -10,12 +10,16 @@ class UserController {
 
     User.create(newUser)
       .then((data) => {
-        // res.redirect('/users/login')
-        console.log(data);
+        res.send(data)
+        // res.redirect('/users/register')
+        // console.log(data);
       })
       .catch((err) => {
-        console.log(err);
-        res.send(err)
+        if(err.name == 'SequelizeValidationError') {
+          res.send(err.message)
+        } else {
+          res.send(err)
+        }
       });
   }
 

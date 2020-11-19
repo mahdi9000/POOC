@@ -17,35 +17,43 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    username: {
-      type: DataTypes.STRING,
+    username:{
+      type:  DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Username must not be empty'
+          msg: 'Email is required.'
         },
         notNull: {
           args: true,
-          msg: 'Username must not be empty'
+          msg: 'Email is required'
+        },
+        len: {
+          args: [5, 15],
+          msg: 'Username length must be between 5-15 characters'
         }
       },
       unique: {
-        args: true,
-        msg: 'Username must be unique'
+        args: 'username',
+        msg: 'Username already taken!'
       }
     },
     password: {
-      type: DataTypes.STRING,
+      type:  DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Password must not be empty'
+          msg: 'Password is required.'
         },
         notNull: {
           args: true,
-          msg: 'Password must not be empty'
+          msg: 'Password is required'
+        },
+        len: {
+          args: [5, 15],
+          msg: 'Password length must be between 5-15 characters'
         }
       },
     },

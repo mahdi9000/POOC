@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      // define association here
       Like.belongsTo(models.Meme, {foreignKey: 'MemeId'})
     }
   };
   Like.init({
     totalLikes: DataTypes.INTEGER,
-    totalDislikes: DataTypes.INTEGER,
-    MemeId: DataTypes.INTEGER,
+    MemeId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Like',

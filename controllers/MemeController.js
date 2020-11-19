@@ -4,14 +4,18 @@ class MemeController {
   static getAllMemes(req, res) {
     Meme.findAll()
       .then((data) => {
-        res.send(data)
-      }).catch((err) => {
-        console.log(err);
-        res.send(data)
+        // res.send(data)
+        res.render("memes/showmemes", {data})
+      })
+      .catch((err) => {
+        res.send(err)
       });
   }
 
-  static createMeme(req, res) {
+  static addMemeForm(req, res){
+    res.render("memes/createForm")
+  }
+  static addMeme(req, res) {
     const newMeme = {
       title: req.body.title,
       category: req.body.category,

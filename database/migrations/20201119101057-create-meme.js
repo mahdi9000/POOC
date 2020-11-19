@@ -11,10 +11,10 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      category: {
+      author: {
         type: Sequelize.STRING
       },
-      meme_url: {
+      image_url: {
         type: Sequelize.STRING
       },
       createdAt: {

@@ -1,13 +1,13 @@
 const express = require('express');
 const router = require('./routers');
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4321
 
 const app = express()
-app.set('view engine', ejs)
+app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:true}))
 
 app.use('/', router)
 
 app.listen(port, ()=>{
-    console.log(`Bookstore is online http://localhost:${port}`)
+    console.log(`Memes is online http://localhost:${port}`)
 })

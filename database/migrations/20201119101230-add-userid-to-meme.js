@@ -7,7 +7,7 @@ module.exports = {
       'UserId', {
         type: Sequelize.INTEGER,
         references: {
-          models: 'Users',
+          model: 'Users',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -18,5 +18,11 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.removeColumn('Memes', 'UserId')
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
   }
 };
