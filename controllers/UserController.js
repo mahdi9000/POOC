@@ -63,9 +63,6 @@ class UserController {
       })
   }
 
-  static testSession(req, res) {
-    res.status(200).json({session: req.session})
-  }
 }
 
 module.exports = UserController

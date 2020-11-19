@@ -1,9 +1,10 @@
 const router = require('express').Router()
 const UserRouter = require('./userRouter')
 const memeRouter = require('./memeRouter')
-const UserController = require('../controllers/UserController')
 
-router.get('/', UserController.testSession)
+router.get('/',(req, res) => {
+  res.redirect('/users/login')
+})
 // (req, res) => {
 //   res.send({
 //     msg: 'Yo whatsapp'
