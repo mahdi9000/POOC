@@ -18,10 +18,12 @@ class MemeController {
   static addMeme(req, res) {
     const newMeme = {
       title: req.body.title,
-      author: req.body.author,
-      image_url: req.body.image_url
+      author: req.session.username,
+      image_url: req.body.image_url,
+      UserId: req.session.userId
     }
 
+    // console.log(newMeme);
     Meme.create(newMeme)
       .then(data => {
         res.redirect("/memes")
@@ -54,7 +56,8 @@ class MemeController {
     const editdata ={
       title: req.body.title,
       author: req.body.author,
-      image_url: req.body.image_url
+      image_url: req.body.image_url,
+      UserId: +req.body.UserId
     }
 
     Meme.update(editdata,{  

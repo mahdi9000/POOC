@@ -6,12 +6,11 @@
     <title>Ini Login</title>
 </head>
 <body>
-    <!-- <% if(error){ %>
-        <p><%= error%> </p>
-    <%} %> -->
+    
     <h1>Please register...</h1>
     <a href="/register"><button><b>Register</b></button></a><br><br>
-    <form action="/login" method="POST">
+    <form action="/users/login" method="POST">
+
     <label for="username">username</label>
     <input type="text" name="username" id="username">
 
