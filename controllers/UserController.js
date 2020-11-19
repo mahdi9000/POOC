@@ -2,6 +2,11 @@ const {User} = require('../database/models')
 const {verifyHash} = require('../helpers/bcrypt')
 
 class UserController {
+
+  static registerForm(req, res){
+    res.render("users/register")
+  }
+
   static register(req, res) {
     const newUser = {
       username: req.body.username,
@@ -11,7 +16,7 @@ class UserController {
     User.create(newUser)
       .then((data) => {
         res.send(data)
-        // res.redirect('/users/register')
+        // res.redirect('/users/login')
         // console.log(data);
       })
       .catch((err) => {
@@ -40,7 +45,9 @@ class UserController {
         } else {
           if(!verifyHash(userLogin.password, user.password)) {
             res.send('Wrong username/password')
-          } else {req.session.userId = user.id
+          } else {
+            req.session.UserId = User.id
+            req.session.username = user.username;
             // res.redirect('/')
             res.send('oke login')
           }

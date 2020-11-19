@@ -1,15 +1,15 @@
 const router = require('express').Router()
 const UserRouter = require('./userRouter')
 const memeRouter = require('./memeRouter')
-const controllermeme = require('../controllers/MemeController')
+const UserController = require('../controllers/UserController')
 
-router.get('/', controllermeme.getAllMemes)
+router.get('/', UserController.registerForm)
 // (req, res) => {
 //   res.send({
 //     msg: 'Yo whatsapp'
 //   })
 // })
 router.use('/users', UserRouter)
-router.use('/memes',memeRouter)
+router.use('/memes', memeRouter)
 
 module.exports = router

@@ -13,30 +13,78 @@ class MemeController {
   }
 
   static addMemeForm(req, res){
-    res.render("memes/createForm")
+    res.render("memes/addForm")
   }
   static addMeme(req, res) {
     const newMeme = {
       title: req.body.title,
-      category: req.body.category,
-      meme_url: req.body.meme_url
+      author: req.body.author,
+      image_url: req.body.image_url
     }
 
     Meme.create(newMeme)
-      .then((data) => {
-        // res.redirect('/')
-        console.log(data);
-      }).catch((err) => {
-        console.log(err);
+      .then(data => {
+        res.redirect("/memes")
+        // res.send(data)
+      })
+      .catch((err) => {
+        res.send(err);
       });
+      
+  }
+
+  static editFormMeme(req, res){
+    let id = +req.params.id
+    let editdata = []
+
+    Meme.findByPk(id)
+    .then((data)=>{
+      editdata.push(data)
+    })
+    .then((data2)=>{
+      // res.send(data2)
+      res.render("memes/editForm",{editdata, data2})
+    })
+    .catch((err)=>{
+      res.send(err)
+    })
   }
 
   static editMeme(req, res){
+    const editdata ={
+      title: req.body.title,
+      author: req.body.author,
+      image_url: req.body.image_url
+    }
+
+    Meme.update(editdata,{  
+      where:{
+        id: +req.params.id
+      }
+    })
+    .then(data=>{
+      res.redirect('/memes')
+    })
+    .catch(err =>{
+      res.send(err)
+    })
 
   }
 
   static deleteMeme(req, res){
-    
+    let id = +req.params.id
+
+    Meme.destroy({
+      where:{
+        id:id
+      }
+    })
+    .then((data) => {
+      res.redirect('/memes')
+   })
+   .catch((err) => {
+      res.send(err)
+   })
   }
 }
 
