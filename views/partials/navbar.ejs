@@ -1,0 +1,24 @@
+<nav>
+  <div class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Register</a></li>
+    <li><a href="#">Login</a></li>
+    <li><a href="#">Projects</a></li>
+  </ul>
+</nav>
+<!-- <section class="landing">
+</section> -->
+<script>
+  const navLinks = document.querySelector(".nav-links");
+  const links = document.querySelectorAll(".nav-links li");
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    links.forEach(link => {
+      link.classList.toggle("fade");
+    });
+  });
+</script>
