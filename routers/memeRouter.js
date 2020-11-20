@@ -11,4 +11,6 @@ router.post('/edit/:id', controllermeme.editMeme)
 
 router.get('/delete/:id', controllermeme.deleteMeme)
 
+router.get('/memes/like/:id', controllermeme.like)
+
 module.exports = router

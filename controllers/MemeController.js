@@ -87,6 +87,21 @@ class MemeController {
         res.send(err);
       });
   }
+
+  static like(req, res) {
+    Like.increment("totalLikes", {
+      where: {
+        id: +req.params.id
+      },
+    })
+    .then(() => {
+      res.redirect("/memes");
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+  }
+
 }
 
 module.exports = MemeController;
